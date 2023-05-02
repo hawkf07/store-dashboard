@@ -1,5 +1,7 @@
 import { FaBars } from "react-icons/fa";
+import { useSidebarStore } from "../store";
 export const Navbar = () => {
+  const { toggleSidebarHandler } = useSidebarStore();
   return (
     <nav className=" flex items-center justify-around p-3 shadow ">
       <a href="#">Pawn</a>
@@ -17,7 +19,10 @@ export const Navbar = () => {
           <a href="#">4</a>
         </li>
       </ul>
-      <button className="block p-2 text-xl md:hidden ">
+      <button
+        onClick={() => toggleSidebarHandler()}
+        className="block p-2 text-xl md:hidden "
+      >
         <FaBars />
       </button>
     </nav>

@@ -4,8 +4,11 @@ import Link from "next/link";
 import { ChangeEvent, FC, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
-
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useSidebarStore } from "../store";
 const Home: NextPage = () => {
+  const [parent] = useAutoAnimate();
+  const { sidebarIsOpen } = useSidebarStore();
   return (
     <>
       <Head>
@@ -15,9 +18,8 @@ const Home: NextPage = () => {
       </Head>
       <div>
         <Navbar />
-
-        <div className="flex">
-          <Sidebar />
+        <div ref={parent} className="flex">
+          {sidebarIsOpen ? <Sidebar /> : null}
           <main className="flex min-h-screen w-full flex-col p-5 ">
             <div className="container flex w-full min-w-0 flex-1 flex-col">
               <header className="flex w-full justify-evenly  p-2">
