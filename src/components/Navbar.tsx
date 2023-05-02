@@ -3,7 +3,7 @@ import { useSidebarStore } from "../store";
 export const Navbar = () => {
   const { toggleSidebarHandler } = useSidebarStore();
   return (
-    <nav className=" flex items-center justify-around p-3 shadow ">
+    <nav className="flex items-center justify-around bg-white p-3 shadow ">
       <a href="#">Pawn</a>
       <ul className="hidden w-2/6 items-center justify-around md:flex ">
         <li>
