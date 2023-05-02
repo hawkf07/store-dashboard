@@ -6,6 +6,8 @@ import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useSidebarStore } from "../store";
+import { FaMoneyBill, FaMoneyBillWave } from "react-icons/fa";
+import { Card } from "../components/Card";
 const Home: NextPage = () => {
   const [parent] = useAutoAnimate();
   const { sidebarIsOpen } = useSidebarStore();
@@ -21,11 +23,15 @@ const Home: NextPage = () => {
         <div ref={parent} className="flex">
           {sidebarIsOpen ? <Sidebar /> : null}
           <main className="flex min-h-screen w-full flex-col p-5 ">
-            <div className="container flex w-full min-w-0 flex-1 flex-col">
-              <header className="flex w-full justify-evenly  p-2">
+            <div className="container flex w-full min-w-0 flex-1 flex-col gap-2">
+              <header className="flex w-full flex-col justify-evenly gap-5 p-2   md:flex-row">
                 <h1 className="text-xl uppercase ">Store Dashboard</h1>
                 <a href="#">/Product/</a>
               </header>
+              <div className="grid gap-5 md:grid-cols-3">
+                <Card />
+                <Card />
+              </div>
             </div>
           </main>
         </div>
